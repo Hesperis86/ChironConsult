@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+
+
+
+    >
+    <Button
+        android:id="@+id/button_drugDatabase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_drugDatabase" />
+    <Button
+        android:id="@+id/button_favs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_favs" />
+
+    <Button
+        android:id="@+id/button_emergency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_emergency" />
+
+    <Button
+        android:id="@+id/button_anaesthesia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_anaesthesia" />
+
+    <Button
+        android:id="@+id/button_fluids"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_fluids" />
+
+    <Button
+        android:id="@+id/button_schemes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_schemes" />
+
+    <Button
+        android:id="@+id/button_doseCalculator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_doseCalculator" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Chiron Consult</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="button_drugDatabase">Baza substancji czynnych</string>
+    <string name="button_favs">Ulubione</string>
+    <string name="button_emergency">Stany nagłe</string>
+    <string name="button_anaesthesia">Anestezja</string>
+    <string name="button_fluids">Płynoterapia</string>
+    <string name="button_schemes">Schematy postępowania leczniczego</string>
+    <string name="button_doseCalculator">Kalkulator dawki</string>
+    <string name="title_item_list">Items</string>
+</resources>
