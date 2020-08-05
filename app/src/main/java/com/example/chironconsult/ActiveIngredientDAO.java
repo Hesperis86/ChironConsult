@@ -26,4 +26,7 @@ public interface ActiveIngredientDAO {
 
     @Query("SELECT ingredientName FROM active_ingredient_table ORDER BY id")
     LiveData<List<String>> getAllActiveIngredients();
+
+    @Query("SELECT * FROM active_ingredient_table ORDER BY id")
+    LiveData<List<ActiveIngredient>> getAllActiveIngredientsData();
 }

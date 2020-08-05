@@ -17,11 +17,13 @@ public class ActiveIngredient {
     //private String effect;
     //private String use;
     private boolean isAllowedForCats;
-    private float cat_lowerDose;
-    private float cat_upperDose;
+    private double cat_lowerDose;
+    private double cat_upperDose;
+    private String cat_administration;
     private boolean isAllowedForDogs;
-    private float dog_lowerDose;
-    private float dog_upperDose;
+    private double dog_lowerDose;
+    private double dog_upperDose;
+    private String dog_administration;
     private String dosageUnit;
     //private String comments;
     //private boolean isFavourite;
@@ -29,15 +31,17 @@ public class ActiveIngredient {
     private boolean isUsedInAnaesthesia;
 
 
-    public ActiveIngredient(String ingredientName, String ingredientGroup, boolean isAllowedForCats, float cat_lowerDose, float cat_upperDose, boolean isAllowedForDogs, float dog_lowerDose, float dog_upperDose, String dosageUnit, boolean emergencyDrug, boolean isUsedInAnaesthesia) {
+    public ActiveIngredient(String ingredientName, String ingredientGroup, boolean isAllowedForCats, double cat_lowerDose, double cat_upperDose, String cat_administration, boolean isAllowedForDogs, double dog_lowerDose, double dog_upperDose, String dog_administration, String dosageUnit, boolean emergencyDrug, boolean isUsedInAnaesthesia) {
         this.ingredientName = ingredientName;
         this.ingredientGroup = ingredientGroup;
         this.isAllowedForCats = isAllowedForCats;
         this.cat_lowerDose = cat_lowerDose;
         this.cat_upperDose = cat_upperDose;
+        this.cat_administration = cat_administration;
         this.isAllowedForDogs = isAllowedForDogs;
         this.dog_lowerDose = dog_lowerDose;
         this.dog_upperDose = dog_upperDose;
+        this.dog_administration = dog_administration;
         this.dosageUnit = dosageUnit;
         this.emergencyDrug = emergencyDrug;
         this.isUsedInAnaesthesia = isUsedInAnaesthesia;
@@ -63,25 +67,29 @@ public class ActiveIngredient {
         return isAllowedForCats;
     }
 
-    public float getCat_lowerDose() {
+    public double getCat_lowerDose() {
         return cat_lowerDose;
     }
 
-    public float getCat_upperDose() {
+    public double getCat_upperDose() {
         return cat_upperDose;
     }
+
+    public String getCat_administration() { return cat_administration; }
 
     public boolean isAllowedForDogs() {
         return isAllowedForDogs;
     }
 
-    public float getDog_lowerDose() {
+    public double getDog_lowerDose() {
         return dog_lowerDose;
     }
 
-    public float getDog_upperDose() {
+    public double getDog_upperDose() {
         return dog_upperDose;
     }
+
+    public String getDog_administration() { return  dog_administration; }
 
     public String getDosageUnit() {
         return dosageUnit;
