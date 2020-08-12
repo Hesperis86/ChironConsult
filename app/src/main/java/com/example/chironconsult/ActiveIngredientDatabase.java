@@ -43,8 +43,8 @@ public abstract class ActiveIngredientDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             activeIngredientDAO.insert(new ActiveIngredient("Acepromazyna", "neuroleptyki", true, 0.01, 0.05, "i.m/s.c", true, 0.01, 0.05, "i.m/s.c", "mg/kg", false, true));
-
-
+            activeIngredientDAO.insert(new ActiveIngredient("Testalazyna", "neuroleptyki", true, 0.01, 0.05, "i.m/s.c", true, 0.01, 0.05, "i.m/s.c", "mg/kg", false, true));
+            activeIngredientDAO.insert(new ActiveIngredient("Mawakoksyb", "neuroleptyki", true, 0.01, 0.05, "i.m/s.c", true, 0.01, 0.05, "i.m/s.c", "mg/kg", false, true));
         return null;
         }
     }

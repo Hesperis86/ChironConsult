@@ -47,6 +47,10 @@ public class ActiveIngredient {
         this.isUsedInAnaesthesia = isUsedInAnaesthesia;
     }
 
+    public ActiveIngredient(String activeIngredientName) {
+        this.ingredientName = ingredientName;
+    }//usunąć
+
     public void setId(int id) {
         this.id = id;
     }
