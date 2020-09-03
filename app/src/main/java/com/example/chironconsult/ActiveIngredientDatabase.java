@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = ActiveIngredient.class, version = 1)
+@Database(entities = ActiveIngredient.class, version = 2)
 public abstract class ActiveIngredientDatabase extends RoomDatabase {
 
     private static ActiveIngredientDatabase instance;
@@ -42,9 +42,9 @@ public abstract class ActiveIngredientDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            activeIngredientDAO.insert(new ActiveIngredient("Acepromazyna", "neuroleptyki", true, 0.01, 0.05, "i.m/s.c", true, 0.01, 0.05, "i.m/s.c", "mg/kg", false, true));
-
-
+            activeIngredientDAO.insert(new ActiveIngredient("Acepromazyna", "neuroleptyki", "sedacja", "sedacja", "Boxery", "test", "nie zapijać wódką", true, true, "najlepiej smakuje schłodzona", false, false, true));
+            activeIngredientDAO.insert(new ActiveIngredient("Testalazyna", "neuroleptyki", "testacja", "testowanie", "wersja alfa", "testowani", "programiści", false, false, "to jest test", true, false, false));
+            activeIngredientDAO.insert(new ActiveIngredient("Mawakoksyb", "neuroleptyki", "przeciwbólowe", "zapalenie stawów", "test", "test", "jakieś na pewno są", false, true, "długotrwałe działanie", true, false, false));
         return null;
         }
     }

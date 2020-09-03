@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 
@@ -16,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chironconsult.dummy.DummyContent;
 
@@ -36,11 +40,14 @@ public class ItemListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
+    private ActiveIngredientViewModel activeIngredientViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -65,15 +72,34 @@ public class ItemListActivity extends AppCompatActivity {
 
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
+        //setupRecyclerView((RecyclerView) recyclerView);
+
+        //-----------------------------------------------------------
+        final ActiveIngredientAdapter adapter = new ActiveIngredientAdapter();
+        ((RecyclerView) recyclerView).setAdapter(adapter);
+
+        activeIngredientViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(ActiveIngredientViewModel.class);
+        activeIngredientViewModel.getAllActiveIngredients().observe(this, new Observer<List<ActiveIngredient>>() {
+            @Override
+            public void onChanged(@Nullable List<ActiveIngredient> activeIngredients) {
+
+                adapter.setActiveIngredientNameList(activeIngredients);
+                //Toast.makeText(ItemListActivity.this, "onChanged", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        //-----------------------------------------------------------
     }
 
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+
+    /*private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
     }
 
     public static class SimpleItemRecyclerViewAdapter
-            extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
+          extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
         private final ItemListActivity mParentActivity;
         private final List<DummyContent.DummyItem> mValues;
@@ -81,7 +107,7 @@ public class ItemListActivity extends AppCompatActivity {
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
+               DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
                     arguments.putString(ItemDetailFragment.ARG_ITEM_ID, item.id);
@@ -106,7 +132,7 @@ public class ItemListActivity extends AppCompatActivity {
             mValues = items;
             mParentActivity = parent;
             mTwoPane = twoPane;
-        }
+       }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -127,7 +153,7 @@ public class ItemListActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
             return mValues.size();
-        }
+       }
 
         class ViewHolder extends RecyclerView.ViewHolder {
             final TextView mIdView;
@@ -139,5 +165,5 @@ public class ItemListActivity extends AppCompatActivity {
                 mContentView = (TextView) view.findViewById(R.id.content);
             }
         }
-    }
+    }*/
 }
